@@ -1,0 +1,148 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homes",
+  "info": {
+    "name": "home",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "private": false,
+      "required": true
+    },
+    "favicon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "home_blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.home-blocks",
+      "required": true
+    },
+    "carousels": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.carousel",
+      "required": true
+    },
+    "project_main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "services_main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "about_main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "contact_main_page": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "who_we_are": {
+      "type": "text",
+      "required": true
+    },
+    "what_we_do": {
+      "type": "string"
+    },
+    "why_choose_us": {
+      "type": "string",
+      "required": true
+    },
+    "about_us": {
+      "type": "text",
+      "required": true
+    },
+    "our_team": {
+      "type": "text",
+      "required": true
+    },
+    "clients_says": {
+      "type": "text",
+      "required": true
+    },
+    "slider_image_1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "slider_image_2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "email": {
+      "type": "email"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "footer_about": {
+      "type": "richtext"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_service_servcie_blocks",
+  "info": {
+    "name": "servcie_blocks",
+    "icon": "check-square"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

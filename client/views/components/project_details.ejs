@@ -1,0 +1,74 @@
+<aside id="colorlib-hero">
+	<div class="flexslider">
+		<ul class="slides">
+		   	<li style="background-image: url('<%= p.url + p.projectImages[0].formats.large.url %>');">
+		   		<div class="overlay"></div>
+		   		<div class="container-fluid">
+		   			<div class="row">
+			   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+			   				<div class="slider-text-inner text-center">
+			   					<h1>Project</h1>
+			   					<h2><a href="/">Home</a> - <a href="/projects">Projects</a> - <%= p.name %></h2>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+	  	</ul>
+	</div>
+</aside>
+
+<div id="colorlib-project">
+	<div class="container">
+		<div class="row row-pb-lg">
+			<div class="col-md-8 animate-box">
+				<img class="img-responsive project-single" src="<%= p.url + p.projectImages[1].formats.medium.url %>" alt="html5 bootstrap template by colorlib.com">
+				<div class="thumb-wrap">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-6">
+							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[2].formats.medium.url %>');"></span>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6">
+							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[3].formats.medium.url %>');"></span>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6">
+							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[4].formats.medium.url %>');"></span>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6">
+							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[5].formats.medium.url %>');"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 animate-box">
+				<div class="project-single-desc">
+					<h2>Project Details</h2>
+					<ul class="list">
+						<li><span class="title">Client:</span> <span class="title-2"><%= p.client %></span></li>
+						<li><span class="title">Location:</span> <span class="title-2"><%= p.location%></span></li>
+						<li><span class="title">Budget:</span> <span class="title-2"><%= p.budget %></span></li>
+						<li><span class="title">Surface Area:</span> <span class="title-2"><%= p.surfaceArea %></span></li>
+						<li><span class="title">Construction Area:</span> <span class="title-2"><%= p.constructionArea %></span></li>
+					</ul>
+				</div>
+				<!-- <p class="downloadreport text-center"><a href="#"><i class="icon-download3"></i> Download Project Report</a></p> -->
+			</div>
+		</div>
+		<!-- ============  paragraphs ========== -->
+		<div class="row row-pb-lg">
+			<div class="col-md-4 animate-box">
+				<h3>Enviroment Description</h3>
+				<p><%= p.enviromentDescription%></p>
+			</div>
+			<div class="col-md-4 animate-box">
+				<h3>Project Description</h3>
+				<p><%= p.projectDescription %></p>
+			</div>
+			<div class="col-md-4 animate-box">
+				<h3>Important Facts</h3>
+				<p><%= p.importantFacts %></p>
+			</div>
+		</div>
+	</div>
+</div>
+

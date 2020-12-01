@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "default": "project-name"
+    },
+    "projectImages": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "client": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "surfaceArea": {
+      "type": "string"
+    },
+    "constructionArea": {
+      "type": "string"
+    },
+    "enviromentDescription": {
+      "type": "richtext"
+    },
+    "projectDescription": {
+      "type": "richtext"
+    },
+    "importantFacts": {
+      "type": "richtext"
+    },
+    "col": {
+      "type": "integer"
+    },
+    "showHome": {
+      "type": "boolean"
+    }
+  }
+}

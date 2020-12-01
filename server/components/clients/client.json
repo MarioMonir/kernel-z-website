@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_clients_clients",
+  "info": {
+    "name": "client",
+    "icon": "child"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "opinion": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_project_project_cards",
+  "info": {
+    "name": "project_card",
+    "icon": "dice-d6",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "projectImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "col": {
+      "type": "integer"
+    },
+    "project_id": {
+      "type": "integer"
+    }
+  }
+}
