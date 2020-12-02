@@ -1,0 +1,67 @@
+<nav class="colorlib-nav" role="navigation">
+   <div class="top-menu">
+      <div class="container" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+         <div class="row" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+            <div class="col-xs-2" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+               <div id="colorlib-logo" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+                  <a href="/<%= el.lang %>">
+                     <%= el.lang == 'en' ? el.name : el.name_arabic  %>
+               </div>
+            </div>
+            <div class="col-xs-10 text-right menu-1">
+            <ul>
+            <li class=" <%= el.page == 'home' ? 'active' : '' %>  "><a href="/<%= el.lang %>">
+            <%- el.lang == 'ar' ? 'الصفحة الرئيسية':'Home' %>
+            </a></li>
+            <li class="has-dropdown  <%= el.page == 'projects' ? 'active' : '' %> ">
+            <a href="/<%= el.lang %>/projects">
+            <%- el.lang == 'ar' ? 'المشاريع':'projects' %>
+            </a>
+            <!-- 
+               <ul class="dropdown">
+               <li><a href="#">Commercial</a></li>
+               <li><a href="#">Apartment</a></li>
+               <li><a href="#">House</a></li>
+               <li><a href="#">Building</a></li>
+               </ul>
+               -->
+            </li>
+            <li class="<%= el.page == 'services' ? 'active' : '' %> " >
+            <a href="/<%= el.lang %>/services"><%- el.lang == 'ar' ? 'الخدمات':'Services' %></a>
+            </li>
+            <li class="<%= el.page == 'about' ? 'active' : '' %>" >
+            <a href="/<%= el.lang %>/about"><%- el.lang == 'ar' ? 'من نحن':'About' %></a>
+            </li>
+            <li class="<%= el.page == 'contact' ? 'active' : '' %>" >
+            <a href="/<%= el.lang %>/contact"><%- el.lang == 'ar' ? 'تواصل معنا':'Contact' %></a>
+            </li>
+            <li>
+            <a id="lang" onclick="func()">English | عربي</a>
+            </li>
+            <script>
+               function func(){
+               	if(window.location.pathname=="/"){
+               		window.location="/ar";
+               	} //base case
+               	else{
+               		var x=window.location.pathname.split('/');
+               		if(x[1]=="en"){
+               			x[1]="ar";
+               		}
+               		else if(x[1]=="ar"){
+               			x[1]="en";
+               		}
+               		else{
+               			x[0]='/'+'ar';
+               		}
+               		x=x.join('/');
+               		window.location=x;
+               	}
+               }
+            </script>
+            </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</nav>

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "services",
   "info": {
-    "name": "services"
+    "name": "services",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -18,6 +19,12 @@
     },
     "text": {
       "type": "text"
+    },
+    "title_arabic": {
+      "type": "string"
+    },
+    "text_arabic": {
+      "type": "string"
     }
   }
 }

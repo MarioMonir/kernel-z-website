@@ -1,19 +1,26 @@
 var express = require("express");
 var router = express.Router();
 const fetch = require("node-fetch");
-const url = "http://localhost:1337";
+const config = require("../data/config.js");
+const { url, fetchHome, fetchEntity } = config;
 
 router.get("/", async (req, res, next) => {
-	let home = await fetch(url + "/homes");
-	home = await home.json();
-	home = home[0];
-	home.url = url;
-
-	let employers = await fetch(url + "/employers");
-	employers = await employers.json();
-	employers.url = url;
-
-	res.render("about", { el: { ...home, employers: [...employers] } });
+	try {
+		let lang = req.app.get("lang");
+		let home = await fetchHome();
+		let employers = await fetchEntity("employers");
+		res.render("about", {
+			el: {
+				...home,
+				lang: lang,
+				page: "about",
+				employers: [...employers],
+			},
+		});
+	} catch (error) {
+		console.error(error);
+		res.send(error);
+	}
 });
 
 module.exports = router;

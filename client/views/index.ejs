@@ -60,41 +60,20 @@
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
-		<nav class="colorlib-nav" role="navigation">
-			<div class="top-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-2">
-              <div id="colorlib-logo"><a href="/"><%= el.name %></div>
-						</div>
-						<div class="col-xs-10 text-right menu-1">
-							<ul>
-								<li class="active"><a href="/">Home</a></li>
-								<li class="has-dropdown">
-                 					 <a href="/projects">Projects</a>
-                  <!-- 
-									<ul class="dropdown">
-										<li><a href="#">Commercial</a></li>
-										<li><a href="#">Apartment</a></li>
-										<li><a href="#">House</a></li>
-										<li><a href="#">Building</a></li>
-                  </ul>
-                  -->
-								</li>
-								<li><a href="/services">Services</a></li>
-								<li><a href="/about">About</a></li>
-								<li><a href="/contact">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
+
+ 		<!-- Start header -->
+		<%- include('components/header.ejs', {el: el} ) %>
+		<!-- End header-->
+		
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
 					<% el.carousels.map((im) => {  %>
-						<%- include('components/carousel_image.ejs', {url: el.url +im.img.formats.medium.url, header: im.header , paragraph: im.paragraph}) %>
+						<%- include('components/carousel_image.ejs', {
+						url: el.url +im.img.formats.medium.url,
+						header: el.lang== 'en' ? im.header : im.header_arabic ,
+						paragraph: el.lang =='en'? im.paragraph : im.paragraph_arabic 
+						}) %>
 					<% })%>
 
 			  	</ul>
@@ -106,16 +85,24 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 tabulation animate-box">
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs"  dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
 							<% el.home_blocks.map((tab,i) => {  %>
-								<%- include('components/nav_tab.ejs', {title:tab.title , active: i == 0 ? 'active' : "" , href:"tab-"+i}) %>
+								<%- include('components/nav_tab.ejs', {
+									title: el.lang == 'en' ? tab.title : tab.title_arabic ,
+									 active: i == 0 ? 'active' : "" , 
+									 href:"tab-"+i , el:el ,
+									}) %>
 							<% })%>
 						</ul>
 						<div class="tab-content">
 							<% el.home_blocks.map((tab,i) => {  %>
-								<%- include('components/nav_block.ejs', {rich_text:tab.rich_text ,active: i == 0 ? 'active' : ""  , href:"tab-"+i}) %>
+								<%- include('components/nav_block.ejs', {
+								rich_text:el.lang == 'en' ? tab.rich_text : tab.rich_text_arabic ,
+								active: i == 0 ? 'active' : ""  , 
+								href:"tab-"+i,
+								 url: el.url + tab.image.formats.medium.url
+								}) %>
 							<% })%>
-
 			         </div>
 			     </div>
 				</div>
@@ -126,7 +113,10 @@
 			<div class="container">
 				<div class="row">
 					<% el.services.map((block) => {  %>
-						<%- include('components/service_block.ejs', {title:block.title , text:block.text}) %>
+						<%- include('components/service_block.ejs', {
+						title: el.lang == 'en' ? block.title : block.title_arabic , 
+						text:  el.lang == 'en' ? block.text : block.text_arabic
+					}) %>
 					<% })%>
 				</div>
 			</div>
@@ -140,28 +130,28 @@
 						<div class="counter-entry">
 							<span class="icon icon-white"><i class="flaticon-skyline"></i></span>
 							<span class="colorlib-counter js-counter" data-from="0" data-to="1539" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Projects</span>
+							<span class="colorlib-counter-label"><%= el.lang == 'en'?'Projects':'مشاريع'%></span>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 text-center animate-box">
 						<div class="counter-entry">
 							<span class="icon"><i class="flaticon-engineer"></i></span>
 							<span class="colorlib-counter js-counter" data-from="0" data-to="3653" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Employees</span>
+							<span class="colorlib-counter-label"><%= el.lang == 'en'?'Empployess':'موظف'%></span>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 text-center animate-box">
 						<div class="counter-entry">
 							<span class="icon"><i class="flaticon-architect-with-helmet"></i></span>
 							<span class="colorlib-counter js-counter" data-from="0" data-to="5987" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Constructor</span>
+							<span class="colorlib-counter-label"><%= el.lang == 'en'?'Constructor':'بناء'%></span>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 text-center animate-box">
 						<div class="counter-entry">
 							<span class="icon"><i class="flaticon-worker"></i></span>
 							<span class="colorlib-counter js-counter" data-from="0" data-to="3999" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Partners</span>
+							<span class="colorlib-counter-label"><%= el.lang == 'en'?'Partner':'شريك'%></span>
 						</div>
 					</div>
 				</div>
@@ -172,15 +162,18 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Our Projects</h2>
+						<h2><%= el.lang == 'en' ? 'Our Projects' : 'مشاريعنا' %></h2>
 						<!-- Start our projects  -->
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
+						<p><%= el.lang == 'en' ? el.our_projects : el.our_projects_arabic %></p>
 						<!-- End our projects  -->
 					</div>
 				</div>
-				<div class="row">
+				<div class="row"  dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
 					<% el.projects.map((project) => {  %>
-						<%- include('components/project_card.ejs',{name: project.name , col:project.col , id:project.id , url: el.url + project.projectImages[0].formats.medium.url })  %>
+						<%- include('components/project_card.ejs',{el:el , 
+						name: el.lang == 'en' ? project.name : project.name_arabic , 
+						col:project.col , id:project.id , 
+						url: el.url + project.projectImages[0].formats.medium.url })  %>
 					<% })%>					
 				</div>
 			</div>
@@ -192,8 +185,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading colorlib-heading2 animate-box">
-						<h2>Our Team</h2>
-						<p><%= el.our_team %></p>
+						<h2><%= el.lang == 'en' ? 'Our Team'  : 'فريقنا' %></h2>
+						<p><%= el.lang == 'en' ? el.our_team  : el.our_team_arabic %></p>
 					</div>
 				</div>
 				<div class="row">
@@ -206,45 +199,57 @@
 							</div>
 							<div class="col-half">
 								<div class="desc">
-									<p><%= el.about_us %></p>
+									<p>
+										<%= el.lang == 'en' ? el.about_us  : el.about_us_arabic%>
+
+									</p>
 									<div class="fancy-collapse-panel">
 			                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 											<div class="panel panel-default">
 												<div class="panel-heading" role="tab" id="headingOne">
 													<h4 class="panel-title">
-													   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Who we are
+													   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													   	<%= el.lang == 'en' ? 'Who we are ? '  : 'من نحن ؟' %>
 													   </a>
 													</h4>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 													<div class="panel-body">
-													   <p><%= el.who_we_are %></p>
+													   <p>
+													   	<%= el.lang == 'en' ? el.who_we_are  : el.who_we_are_arabic%>
+													   </p>
 													</div>
 												</div>
 											</div>
 											<div class="panel panel-default">
 												<div class="panel-heading" role="tab" id="headingTwo">
 													<h4 class="panel-title">
-													   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What we do?
+													   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													   	   	<%= el.lang == 'en' ? 'What we do?'  : 'ماذا نفعل ؟' %>
 													   </a>
 													</h4>
 												</div>
 											 	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 													<div class="panel-body">
-													  <p><%= el.what_we_do %></p>
+													  <p>
+													  	<%= el.lang == 'en' ? el.what_we_do  : el.what_we_do_arabic%>
+													  </p>
 												 	</div>
 												</div>
 											</div>
 			                     	<div class="panel panel-default">
 			                         	<div class="panel-heading" role="tab" id="headingThree">
 			                             	<h4 class="panel-title">
-			                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Why Choose us
+			                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			                                 	 	<%= el.lang == 'en' ? 'Why choose us ? '  : 'لماذا تختارانا ؟' %>
 			                                 </a>
 			                             	</h4>
 			                         	</div>
 			                         	<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 			                             	<div class="panel-body">
-			                                 <p><%= el.why_choose_us %></p>	
+			                                 <p>
+			                                 	<%= el.lang == 'en' ? el.why_choose_us  : el.why_choose_us_arabic%>
+			                                  </p>	
 			                              </div>
 			                           </div>
 			                        </div>
@@ -263,8 +268,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Client Says:</h2>
-						<p><%= el.clients_says %></p>
+						<h2><%= el.lang == 'en' ? 'Client Says '  : 'العميل يقول' %> </h2>
+						<p><%= el.lang == 'en' ? el.clients_says  : el.clients_says_arabic%></p>
 					</div>
 				</div>
 				<div class="row">

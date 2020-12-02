@@ -143,6 +143,30 @@
     },
     "address": {
       "type": "string"
+    },
+    "name_arabic": {
+      "type": "string"
+    },
+    "who_we_are_arabic": {
+      "type": "text"
+    },
+    "what_we_do_arabic": {
+      "type": "text"
+    },
+    "why_choose_us_arabic": {
+      "type": "text"
+    },
+    "footer_about_arabic": {
+      "type": "text"
+    },
+    "our_team_arabic": {
+      "type": "text"
+    },
+    "our_project": {
+      "type": "text"
+    },
+    "our_project_arabic": {
+      "type": "string"
     }
   }
 }

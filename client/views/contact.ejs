@@ -25,63 +25,46 @@
 	<link rel="icon" href="<%= el.url + el.favicon.formats.thumbnail.url %>" type="image/png">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="/css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="/css/bootstrap.css">
 
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="/css/magnific-popup.css">
 
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="/css/flexslider.css">
 
 	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
 	
 	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="/js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
 	</head>
-	<body>
+	<body  dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">
 		
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
-		<nav class="colorlib-nav" role="navigation">
-			<div class="top-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="/"><%= el.name %></a></div>
-						</div>
-						<div class="col-xs-10 text-right menu-1">
-              <ul>
-								<li ><a href="/">Home</a></li>
-								<li class="has-dropdown">
-									<a href="/projects">Projects</a>
-								</li>
-								<li><a href="/services">Services</a></li>
-								<li><a href="/about">About</a></li>
-								<li class="active"> <a href="/contact">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
+		
+		<!-- Start header -->
+		<%- include('components/header.ejs', {el: el} ) %>
+		<!-- End header-->
+
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
@@ -91,8 +74,12 @@
 			   			<div class="row">
 				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
 				   				<div class="slider-text-inner text-center">
-				   					<h1>Contact us</h1>
-				   					<h2><a href="/">Home</a> - Contact</h2>
+				   						<h1><%= el.lang == 'en'? 'Contact us' : 'اتصل بنا' %></h1>
+										<h2><a href="/<%= el.lang %>">
+											<%= el.lang =='en'  ? 'Home' : 'الرئيسة' %>
+										</a> -
+										 <%= el.lang == 'en' ? ' Contact us': 'اتصل بنا' %>
+										</h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -106,7 +93,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 animate-box">
-						<h2>Contact Information</h2>
+						<h2 > <%= el.lang == 'en' ? ' Contact Information': 'بيانات الاتصال' %></h2>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="contact-info-wrap-flex">
@@ -136,41 +123,54 @@
 						</div>
 					</div>
 					<div class="col-md-10 col-md-offset-1 animate-box">
-						<h2>Get In Touch</h2>
+						<h2><%= el.lang == 'en' ? 'Get in Touch': 'تواصل معنا' %></h2>
 						<form action="#">
 							<div class="row form-group">
 								<div class="col-md-6">
-									<label for="fname">First Name</label>
-									<input type="text" required id="fname" class="form-control" placeholder="Your firstname">
+									<label for="fname"> 
+										<%= el.lang == 'en' ? 'First Name': 'الاسم الاول' %>
+									</label>
+									<input type="text" required id="fname" class="form-control"
+									 placeholder="<%= el.lang == 'en' ? 'First Name': 'الاسم الاول' %>">
 								</div>
 								<div class="col-md-6">
-									<label for="lname">Last Name</label>
-									<input type="text" required id="lname" class="form-control" placeholder="Your lastname">
+									<label for="lname">
+										<%= el.lang == 'en' ? 'Last Name': 'الاسم العائلة' %>
+									</label>
+									<input type="text" required id="lname" class="form-control" 
+									placeholder="<%= el.lang == 'en' ? 'Last Name': 'الاسم العائلة' %>">
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12">
-									<label for="email">Email</label>
-									<input required type="text" id="email" class="form-control" placeholder="Your email address">
+									<label for="email">
+										<%= el.lang == 'en' ? 'Email': 'البريد الالكترونى' %>
+									</label>
+									<input required type="text" id="email" class="form-control" 
+									placeholder="<%= el.lang == 'en' ? 'Email': 'البريد الالكترونى' %>">
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12">
-									<label for="subject">Subject</label>
-									<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+									<label for="subject"><%= el.lang == 'en' ? 'Subject': 'الموضوع' %></label>
+									<input type="text" id="subject" class="form-control" 
+									placeholder="<%= el.lang == 'en' ? 'Subject': 'الموضوع' %>">
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12">
-									<label for="message">Message</label>
-									<textarea required name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+									<label for="message">
+										<%= el.lang == 'en' ? 'Message': 'الرسالة' %>
+									</label>
+									<textarea required name="message" id="message" cols="30" rows="10" class="form-control" placeholder="<%= el.lang == 'en' ? 'Message': 'الرسالة' %>">
+									</textarea>
 								</div>
 							</div>
 							<div class="form-group">
-								<input type="submit" value="Send Message"  onclick="submitLead(event)"  class="btn btn-primary">
+								<input type="submit" value="<%= el.lang == 'en' ? 'Send Message': 'ارسال' %>"  onclick="submitLead(event)"  class="btn btn-primary">
 							</div>
 						</form>		
 					</div>
@@ -236,29 +236,29 @@
     }
   </script>
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="/js/jquery.waypoints.min.js"></script>
 	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
+	<script src="/js/jquery.stellar.min.js"></script>
 	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="/js/jquery.flexslider-min.js"></script>
 	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/magnific-popup-options.js"></script>
 	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
+	<script src="/js/jquery.countTo.js"></script>
 	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<script src="js/google_map.js"></script>
 	<!-- Main -->
-	<script src="js/main.js"></script>
+	<script src="/js/main.js"></script>
 
 	</body>
 </html>

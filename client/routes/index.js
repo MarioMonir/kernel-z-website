@@ -2,44 +2,22 @@ var express = require("express");
 var router = express.Router();
 var nodemailer = require("nodemailer");
 const fetch = require("node-fetch");
-
-const url = "http://localhost:1337";
+const config = require("../data/config.js");
+const { url, fetchHome, fetchEntity } = config;
 
 router.get("/", async (req, res, next) => {
-  var home = {};
-  var projects = {};
-
-  var arr = [];
   try {
-    let promiseArray = [];
-    let data = {};
-
-    let home = await fetch(url + "/homes");
-    home = await home.json();
-    home = home[0];
-    home.url = url;
-
-    let projects = await fetch(url + "/projects?showHome=true");
-    projects = await projects.json();
-    projects.url = url;
-
-    let services = await fetch(url + "/services");
-    services = await services.json();
-    services.url = url;
-
-    let employers = await fetch(url + "/employers");
-    employers = await employers.json();
-    employers.url = url;
-
-    let clients = await fetch(url + "/clients");
-    clients = await clients.json();
-    clients.url = url;
-
-    // res.send({ employers: { ...employers } });
-
+    let lang = req.app.get("lang");
+    let home = await fetchHome();
+    let projects = await fetchEntity("projects?showHome=true");
+    let services = await fetchEntity("services");
+    let employers = await fetchEntity("employers");
+    let clients = await fetchEntity("clients");
     res.render("index", {
       el: {
         ...home,
+        lang: lang,
+        page: "home",
         projects: [...projects],
         services: [...services],
         employers: [...employers],
@@ -50,8 +28,6 @@ router.get("/", async (req, res, next) => {
     console.error(error);
     res.send(error);
   }
-
-  //   res.render("index", { el: json[0] });
 });
 
 // Submit lead

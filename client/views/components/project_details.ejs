@@ -7,8 +7,12 @@
 		   			<div class="row">
 			   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
 			   				<div class="slider-text-inner text-center">
-			   					<h1>Project</h1>
-			   					<h2><a href="/">Home</a> - <a href="/projects">Projects</a> - <%= p.name %></h2>
+	   							<h1><%= el.lang == 'en'? 'Project' : 'مشروع' %></h1>
+								<h2><a href="/<%= el.lang %>">
+									<%= el.lang =='en'  ? 'Home' : 'الرئيسة' %>
+								</a> -
+								 <%= el.lang == 'en' ? 'Projcets': 'المشاريع' %>
+								</h2>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -40,33 +44,58 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 animate-box">
+			<div class="col-md-4 animate-box"  dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">
 				<div class="project-single-desc">
-					<h2>Project Details</h2>
+					<h2>	 <%= el.lang == 'en' ?  'Project Details' : 'تفاصيل المشروع' %></h2>
 					<ul class="list">
-						<li><span class="title">Client:</span> <span class="title-2"><%= p.client %></span></li>
-						<li><span class="title">Location:</span> <span class="title-2"><%= p.location%></span></li>
-						<li><span class="title">Budget:</span> <span class="title-2"><%= p.budget %></span></li>
-						<li><span class="title">Surface Area:</span> <span class="title-2"><%= p.surfaceArea %></span></li>
-						<li><span class="title">Construction Area:</span> <span class="title-2"><%= p.constructionArea %></span></li>
+						<li><span class="title">
+								 <%= el.lang == 'en' ?  'Client' : 'العميل' %>
+						</span> <span class="title-2">
+								 <%= el.lang == 'en' ?  p.client : p.client_arabic %>	
+								 </span></li>
+						<li><span class="title">
+							 <%= el.lang == 'en' ?  'Location' : 'المكان' %>
+						</span> <span class="title-2">
+							 <%= el.lang == 'en' ?  p.location : p.location_arabic %>
+							</span></li>
+						<li><span class="title">
+							 <%= el.lang == 'en' ?  'Budget' : 'الميزانية' %>
+						</span> <span class="title-2">
+							<%= p.budget %></span></li>
+						<li><span class="title">
+							 <%= el.lang == 'en' ?  'Surface Area' : 'المساحة ' %>
+						</span> <span class="title-2">
+							<%= el.lang == 'en' ?  p.surfaceArea : p.surfaceArea_arabic %>	
+							</span></li>
+						<li><span class="title">
+							 <%= el.lang == 'en' ?  'Construction Area' : 'مساحة ابناء' %>
+						</span> <span class="title-2">
+							<%= el.lang == 'en' ?  p.constructionArea : p.construcionArea_arabic %>	
+						 %></span></li>
 					</ul>
 				</div>
 				<!-- <p class="downloadreport text-center"><a href="#"><i class="icon-download3"></i> Download Project Report</a></p> -->
 			</div>
 		</div>
 		<!-- ============  paragraphs ========== -->
-		<div class="row row-pb-lg">
+		<div class="row row-pb-lg" dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">
 			<div class="col-md-4 animate-box">
-				<h3>Enviroment Description</h3>
-				<p><%= p.enviromentDescription%></p>
+				<h3> <%= el.lang == 'en' ?  'Enviroment Description' : 'بيئة العمل' %></h3>
+				<p>
+				<%= el.lang == 'en' ?  p.enviromentDescription : p.enviromentDescription_arabic %>	
+				</p>
 			</div>
 			<div class="col-md-4 animate-box">
-				<h3>Project Description</h3>
-				<p><%= p.projectDescription %></p>
+				<h3> <%= el.lang == 'en' ?  'Project Description' : 'وصف المشروع' %></h3>
+				<p>
+				<%= el.lang == 'en' ?  p.projectDescription : p.projectDescription_arabic %>	
+				</p>
 			</div>
 			<div class="col-md-4 animate-box">
-				<h3>Important Facts</h3>
-				<p><%= p.importantFacts %></p>
+			<h3> <%= el.lang == 'en' ?  'Important Fact' : 'حقائق هامة' %></h3>
+					<p>
+				<%= el.lang == 'en' ?  p.importantFacts : p.importantFacts_arabic %>	
+				</p>
 			</div>
 		</div>
 	</div>

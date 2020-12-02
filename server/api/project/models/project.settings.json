@@ -57,6 +57,30 @@
     },
     "showHome": {
       "type": "boolean"
+    },
+    "name_arabic": {
+      "type": "string"
+    },
+    "client_arabic": {
+      "type": "string"
+    },
+    "location_arabic": {
+      "type": "string"
+    },
+    "surfaceArea_arabic": {
+      "type": "text"
+    },
+    "constructionArea_arabic": {
+      "type": "string"
+    },
+    "enviromentDescription_arabic": {
+      "type": "richtext"
+    },
+    "projectDescription_arabic": {
+      "type": "richtext"
+    },
+    "importantFacts_arabic": {
+      "type": "richtext"
     }
   }
 }

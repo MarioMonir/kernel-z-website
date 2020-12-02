@@ -30,8 +30,8 @@
 			<div class="container">
 				<div class="row row-pb-md">
 					<div class="col-md-3 colorlib-widget">
-						<h4>About <%= el.name %></h4>
-						<p><%= el.footer_about %></p>
+						<h4><%= el.lang=='en' ? " About "+el.name+"" : " حول "+el.name_arabic %></h4>
+						<p><%= el.lang=='en' ? el.footer_about : el.footer_about_arabic %></p>
 <!-- 						<p>
 							<ul class="colorlib-social-icons">
 								<li><a href="#"><i class="icon-twitter"></i></a></li>
@@ -42,23 +42,37 @@
 						</p> -->
 					</div>
 					<div class="col-md-3 col-md-push-1 colorlib-widget">
-						<h4>Information</h4>
+						<h4><%= el.lang=='en' ? 'Information' : 'معلومات' %></h4>
 						<p>
 							<ul class="colorlib-footer-links">
-								<li><a href="#"><i class="icon-check"></i> Our Company</a></li>
-								<li><a href="#"><i class="icon-check"></i> Certification</a></li>
-								<li><a href="#"><i class="icon-check"></i> Our services</a></li>
-								<li><a href="#"><i class="icon-check"></i> Career</a></li>
-								<li><a href="#"><i class="icon-check"></i> Core Values</a></li>
-								<li><a href="#"><i class="icon-check"></i> Company History</a></li>
-								<li><a href="#"><i class="icon-check"></i> FAQ</a></li>
+								<li><a href="#"><i class="icon-check"></i> 
+								<%= el.lang=='en' ? 'Our Company' : '' %>
+							</a></li>
+								<li><a href="#"><i class="icon-check"></i> 
+									<%= el.lang=='en' ? 'Certification' : '' %>
+								</a></li>
+								<li><a href="#"><i class="icon-check"></i>
+								<%= el.lang=='en' ? 'Our services' : '' %>
+								 </a></li>
+								<li><a href="#"><i class="icon-check"></i> 
+									<%= el.lang=='en' ? 'Career' : '' %>
+								</a></li>
+								<li><a href="#"><i class="icon-check"></i> 
+									<%= el.lang=='en' ? 'Core Values' : '' %>
+								</a></li>
+								<li><a href="#"><i class="icon-check"></i> 
+									<%= el.lang=='en' ? 'Company History' : '' %>
+								</a></li>
+								<li><a href="#"><i class="icon-check"></i>
+								<%= el.lang=='en' ? 'FAQ' : '' %>
+								 </a></li>
 							</ul>
 						</p>
 					</div>
 
 
 					<div class="col-md-3 col-md-push-1 colorlib-widget">
-						<h4>Contact Info</h4>
+						<h4><%= el.lang=='en' ? 'Contact Info' : 'معلوماتالنواصل' %></h4>
 						<ul class="colorlib-footer-links">
 							<li><%= el.address %></li>
 							<li><a><i class="icon-phone"></i><%= el.mobile %></a></li>
