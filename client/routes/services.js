@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-const config = require("../data/config.js");
 const fetch = require("node-fetch");
 const config = require("../data/config.js");
 const { url, fetchHome, fetchEntity } = config;
