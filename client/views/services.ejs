@@ -113,6 +113,7 @@
 						<div class="row animate-box">
 							<div class="owl-carousel1">
 								<% el.clients.map((cl) => {  %>
+
 								<%- include('components/client.ejs', {url: el.url +cl.img.formats.medium.url, name:cl.name , opinion: cl.opinion}) %>
 								<% })%>
 							

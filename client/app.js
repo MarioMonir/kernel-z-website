@@ -1,17 +1,19 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-// Routers
-var indexRouter = require("./routes/index");
-var aboutRouter = require("./routes/about");
-var servicesRouter = require("./routes/services");
-var contactRouter = require("./routes/contact");
-var projectsRouter = require("./routes/projects");
+// Routers 
+var indexRouter = require('./routes/index');
+var aboutRouter = require('./routes/about');
+var servicesRouter = require('./routes/services');
+var contactRouter = require('./routes/contact');
+var projectsRouter = require('./routes/projects');
+var projectRouter = require('./routes/project');
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
-// Express
+// Express 
 var app = express();
 app.use(logger("dev"));
 app.use(express.json());

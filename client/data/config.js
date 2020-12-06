@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const url = "http://localhost:1337";
+const url = "https://aluwalls.com:8080";
 
 const config = {
 	url: url,
