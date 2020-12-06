@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const url = "http://localhost:1337";
+const url = "https://aluwalls.com:8080";
 const fetch = require("node-fetch");
 
 router.get("/", async (req, res, next) => {
@@ -16,7 +16,8 @@ router.get("/", async (req, res, next) => {
 	let clients = await fetch(url + "/clients");
 	clients = await clients.json();
 	clients.url = url;
-
+	console.log("hello clients");
+	console.log(clients);
 	res.render("services", {
 		el: { ...home, services: [...services], clients: [...clients] },
 	});

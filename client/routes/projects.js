@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const fetch = require("node-fetch");
 
-const url = "http://localhost:1337";
+const url = "https://aluwalls.com:8080";
 
 router.get("/:id", async (req, res, next) => {
 	console.log(req.params.id);
@@ -44,3 +44,4 @@ router.get("/", async (req, res, next) => {
 });
 
 module.exports = router;
+

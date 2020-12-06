@@ -11,6 +11,7 @@ var servicesRouter = require('./routes/services');
 var contactRouter = require('./routes/contact');
 var projectsRouter = require('./routes/projects');
 var projectRouter = require('./routes/project');
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 // Express 
 var app = express();
