@@ -29,14 +29,16 @@
 				<img class="img-responsive project-single" src="<%= p.url + p.projectImages[1].url %>" alt="html5 bootstrap template by colorlib.com">
 				<div class="thumb-wrap">
 					<div class="row">
-	<%for (var i=2;i<p.projectImages.length;i++){ %>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[i].url %>');"></span>
-						</div>
-<%}%>
+						<%for (var i=2;i<p.projectImages.length;i++){ %>
+							<div class="col-md-3 col-sm-3 col-xs-6">
+								<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[i].url %>');"></span>
+							</div>
+						<%}%>
 					</div>
 				</div>
 			</div>
+
+			<% if (details) { %>
 			<div class="col-md-4 animate-box"  dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">
 				<div class="project-single-desc">
 					<h2>	 <%= el.lang == 'en' ?  'Project Details' : 'تفاصيل المشروع' %></h2>
@@ -100,6 +102,7 @@
 				</div>
 				<!-- <p class="downloadreport text-center"><a href="#"><i class="icon-download3"></i> Download Project Report</a></p> -->
 			</div>
+			<% } %>
 		</div>
 		<!-- ============  paragraphs ========== -->
 		<div class="row row-pb-lg" dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">

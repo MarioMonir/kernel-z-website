@@ -1,7 +1,7 @@
 <div class="col-md-<%= col %> animate-box">
 	<div class="project-entry">
 		<a
-			href="/<%= el.lang %>/projects/<%= id %>"
+			href="/<%= el.lang %><%= !current ? '/projects/':'/current-projects/' %><%= id %>"
 			class="project-img text-center"
 			style="background-image: url('<%= url %>');
 		>

@@ -121,6 +121,7 @@
 				<div class="row"  dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
 					<% el.projects.map((project) => {  %>
 						<%- include('components/project_card.ejs',{el:el , 
+						current:false,
 						name: el.lang == 'en' ? project.name : project.name_arabic , 
 						col:project.col , id:project.id , 
 						url: el.url + project.projectImages[0].url })  %>

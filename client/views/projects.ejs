@@ -80,7 +80,7 @@
 										<h2><a href="/<%= el.lang %>">
 											<%= el.lang =='en'  ? 'Home' : 'الرئيسة' %>
 										</a> -
-										 <%= el.lang == 'en' ? 'Projcets': 'المشاريع' %>
+										 <%= el.lang == 'en' ? 'Projects': 'المشاريع' %>
 										</h2>
 									</div>
 								</div>
@@ -97,6 +97,7 @@
 					<% el.projects.map((project) => {  %>
 						<%- include('components/project_card.ejs',{
 							name: el.lang == 'en' ? project.name : project.name_arabic,
+							current:false,
 							col:project.col ,
 							id:project.id , url: el.url + project.projectImages[0].url 
 						})  %>

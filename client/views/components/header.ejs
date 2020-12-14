@@ -13,6 +13,7 @@
             <li class=" <%= el.page == 'home' ? 'active' : '' %>  "><a href="/<%= el.lang %>">
             <%- el.lang == 'ar' ? 'الصفحة الرئيسية':'Home' %>
             </a></li>
+          
             <li class="has-dropdown  <%= el.page == 'projects' ? 'active' : '' %> ">
             <a href="/<%= el.lang %>/projects">
             <%- el.lang == 'ar' ? 'المشاريع':'projects' %>
@@ -26,6 +27,12 @@
                </ul>
                -->
             </li>
+
+            <li class="has-dropdown  <%= el.page == 'currentProjects' ? 'active' : '' %> ">
+               <a href="/<%= el.lang %>/current-projects">
+               <%- el.lang == 'ar' ? 'المشاريع الحالية':'Current Projects' %>
+               </a></li>
+ 
             <li class="<%= el.page == 'services' ? 'active' : '' %> " >
             <a href="/<%= el.lang %>/services"><%- el.lang == 'ar' ? 'الخدمات':'Services' %></a>
             </li>

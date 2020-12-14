@@ -10,6 +10,7 @@ var aboutRouter = require('./routes/about');
 var servicesRouter = require('./routes/services');
 var contactRouter = require('./routes/contact');
 var projectsRouter = require('./routes/projects');
+var currentProjectsRouter = require('./routes/currentProjects');
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 // Express 
@@ -48,6 +49,9 @@ let about = new RegExp("/(en/|ar/|)about");
 let services = new RegExp("/(en|ar)/services");
 let projects = new RegExp("/(en|ar)/projects");
 let contact = new RegExp("/(en|ar)/contact");
+let currentProjects = new RegExp("/(en|ar)/current-projects");
+
+
 
 // Routers uses
 app.use(home, indexRouter);
@@ -55,6 +59,7 @@ app.use(about, aboutRouter);
 app.use(services, servicesRouter);
 app.use(projects, projectsRouter);
 app.use(contact, contactRouter);
+app.use(currentProjects,currentProjectsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
