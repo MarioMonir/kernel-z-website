@@ -23,9 +23,9 @@
 </aside>
 
 <div id="colorlib-project">
-	<div class="container">
-		<div class="row row-pb-lg">
-			<div class="col-md-8 animate-box">
+	<div class="container" style="text-align: center;">
+		<div class="row row-pb-lg" style="display: flex; justify-content: center;">
+			<div class="col-md-8 animate-box"  >
 				<img class="img-responsive project-single" src="<%= p.url + p.projectImages[1].url %>" alt="html5 bootstrap template by colorlib.com">
 				<div class="thumb-wrap">
 					<div class="row">
@@ -105,26 +105,35 @@
 			<% } %>
 		</div>
 		<!-- ============  paragraphs ========== -->
+		<% if (paragraphs) { %>
+		
 		<div class="row row-pb-lg" dir="<%= el.lang =='en' ? 'ltr' : 'rtl' %>">
-			<div class="col-md-4 animate-box">
-				<h3> <%= el.lang == 'en' ?  'Enviroment Description' : 'بيئة العمل' %></h3>
-				<p>
-				<%= el.lang == 'en' ?  p.enviromentDescription : p.enviromentDescription_arabic %>	
-				</p>
-			</div>
-			<div class="col-md-4 animate-box">
-				<h3> <%= el.lang == 'en' ?  'Project Description' : 'وصف المشروع' %></h3>
-				<p>
-				<%= el.lang == 'en' ?  p.projectDescription : p.projectDescription_arabic %>	
-				</p>
-			</div>
-			<div class="col-md-4 animate-box">
-			<h3> <%= el.lang == 'en' ?  'Important Fact' : 'حقائق هامة' %></h3>
+			<% if (p.enviromentDescription || p.enviromentDescription_arabic) { %>
+				<div class="col-md-4 animate-box">
+					<h3> <%= el.lang == 'en' ?  'Enviroment Description' : 'بيئة العمل' %></h3>
 					<p>
-				<%= el.lang == 'en' ?  p.importantFacts : p.importantFacts_arabic %>	
-				</p>
-			</div>
+					<%= el.lang == 'en' ?  p.enviromentDescription : p.enviromentDescription_arabic %>	
+					</p>
+				</div>
+			<% } %>
+			<% if (p.projectDescription || p.projectDescription_arabic) { %>
+				<div class="col-md-4 animate-box">
+					<h3> <%= el.lang == 'en' ?  'Project Description' : 'وصف المشروع' %></h3>
+					<p>
+					<%= el.lang == 'en' ?  p.projectDescription : p.projectDescription_arabic %>	
+					</p>
+				</div>
+			<% } %>
+			<% if (p.importantFacts || p.importantFacts_arabic) { %>
+				<div class="col-md-4 animate-box">
+				<h3> <%= el.lang == 'en' ?  'Important Fact' : 'حقائق هامة' %></h3>
+						<p>
+					<%= el.lang == 'en' ?  p.importantFacts : p.importantFacts_arabic %>	
+					</p>
+				</div>
+			<% } %>
 		</div>
+		<% } %>
 	</div>
 </div>
 

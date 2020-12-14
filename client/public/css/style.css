@@ -287,7 +287,7 @@ h1, h2, h3, h4, h5, h6, figure {
           bottom: 0;
           left: 0;
           right: 0;
-          opacity: .25;
+          opacity: .5;
           background: #00b7ea;
           /* Old browsers */
           background: -moz-linear-gradient(45deg, #43DDE6 0%, #9870FC 100%);
