@@ -22,7 +22,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700" rel="stylesheet">
 	
-	<link rel="icon" href="<%= el.url + el.favicon.formats.thumbnail.url %>" type="image/png">
+	<link rel="icon" href="<%= el.url + el.favicon.url %>" type="image/png">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/css/animate.css">
@@ -68,7 +68,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image:url(<%= el.url + el.services_main_image.formats.medium.url %>);">
+			   	<li style="background-image:url(<%= el.url + el.services_main_image.url %>);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -114,7 +114,7 @@
 							<div class="owl-carousel1">
 								<% el.clients.map((cl) => {  %>
 
-								<%- include('components/client.ejs', {url: el.url +cl.img.formats.medium.url, name:cl.name , opinion: cl.opinion}) %>
+								<%- include('components/client.ejs', {url: el.url +cl.img.url, name:cl.name , opinion: cl.opinion}) %>
 								<% })%>
 							
 							</div>

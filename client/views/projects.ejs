@@ -23,7 +23,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700" rel="stylesheet">
 
-	<link rel="icon" href="<%= el.url + el.favicon.formats.thumbnail.url %>" type="image/png">
+	<link rel="icon" href="<%= el.url + el.favicon.url %>" type="image/png">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/css/animate.css">
@@ -70,7 +70,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(<%= el.url + el.project_main_image.formats.large.url %>);">
+					<li style="background-image: url(<%= el.url + el.project_main_image.url %>);">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
@@ -98,7 +98,7 @@
 						<%- include('components/project_card.ejs',{
 							name: el.lang == 'en' ? project.name : project.name_arabic,
 							col:project.col ,
-							id:project.id , url: el.url + project.projectImages[0].formats.medium.url 
+							id:project.id , url: el.url + project.projectImages[0].url 
 						})  %>
 					<% })%>	
 				</div>

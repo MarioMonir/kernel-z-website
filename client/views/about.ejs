@@ -22,7 +22,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700" rel="stylesheet">
 	
-	<link rel="icon" href="<%= el.url + el.favicon.formats.thumbnail.url %>" type="image/png">
+	<link rel="icon" href="<%= el.url+el.favicon.url %>" type="image/png">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/css/animate.css">
@@ -67,7 +67,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(<%= el.url + el.about_main_image.formats.medium.url %>);">
+			   	<li style="background-image: url(<%= el.url + el.about_main_image.url %>);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -160,7 +160,7 @@
 				</div>
 				<div class="row">
 						<% el.employers.map((emp) => {  %>
-								<%- include('components/teamMember2.ejs', {url: el.url + emp.img.formats.medium.url, name:emp.name , role: emp.role}) %>
+								<%- include('components/teamMember2.ejs', {url: el.url + emp.img.url, name:emp.name , role: emp.role}) %>
 								<% })%>
 				</div>
 			</div>

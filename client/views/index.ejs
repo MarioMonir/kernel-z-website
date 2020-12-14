@@ -22,7 +22,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700" rel="stylesheet">
 	
-	<link rel="icon" href="<%= el.url + el.favicon.formats.thumbnail.url %>" type="image/png">
+	<link rel="icon" href="<%= el.url + el.favicon.url %>" type="image/png">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -70,7 +70,7 @@
 				<ul class="slides">
 					<% el.carousels.map((im) => {  %>
 						<%- include('components/carousel_image.ejs', {
-						url: el.url +im.img.formats.medium.url,
+						url: el.url+im.img.url,
 						header: el.lang== 'en' ? im.header : im.header_arabic ,
 						paragraph: el.lang =='en'? im.paragraph : im.paragraph_arabic 
 						}) %>
@@ -100,7 +100,7 @@
 								rich_text:el.lang == 'en' ? tab.rich_text : tab.rich_text_arabic ,
 								active: i == 0 ? 'active' : ""  , 
 								href:"tab-"+i,
-								 url: el.url + tab.image.formats.medium.url
+								 url: el.url + tab.image.url
 								}) %>
 							<% })%>
 			         </div>
@@ -108,21 +108,28 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="colorlib-services">
+		<div id="colorlib-project">
 			<div class="container">
 				<div class="row">
-					<% el.services.map((block) => {  %>
-						<%- include('components/service_block.ejs', {
-						title: el.lang == 'en' ? block.title : block.title_arabic , 
-						text:  el.lang == 'en' ? block.text : block.text_arabic
-					}) %>
-					<% })%>
+					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+						<h2><%= el.lang == 'en' ? 'Our Projects' : 'مشاريعنا' %></h2>
+						<!-- Start our projects  -->
+						<p><%= el.lang == 'en' ? el.our_projects : el.our_projects_arabic %></p>
+						<!-- End our projects  -->
+					</div>
+				</div>
+				<div class="row"  dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+					<% el.projects.map((project) => {  %>
+						<%- include('components/project_card.ejs',{el:el , 
+						name: el.lang == 'en' ? project.name : project.name_arabic , 
+						col:project.col , id:project.id , 
+						url: el.url + project.projectImages[0].url })  %>
+					<% })%>					
 				</div>
 			</div>
 		</div>
 
-		<div id="colorlib-counter" class="colorlib-counters" style="background-image: url('<%= el.url + el.slider_image_1.formats.medium.url %>');" data-stellar-background-ratio="0.5">
+		<div id="colorlib-counter" class="colorlib-counters" style="background-image: url('<%= el.url + el.slider_image_1.url %>');" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row no-gutter">
@@ -157,30 +164,26 @@
 				</div>
 			</div>
 		</div>
-		
-		<div id="colorlib-project">
+<!--
+-->
+<!--		
+		<div id="colorlib-services">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2><%= el.lang == 'en' ? 'Our Projects' : 'مشاريعنا' %></h2>
-						<!-- Start our projects  -->
-						<p><%= el.lang == 'en' ? el.our_projects : el.our_projects_arabic %></p>
-						<!-- End our projects  -->
-					</div>
-				</div>
-				<div class="row"  dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
-					<% el.projects.map((project) => {  %>
-						<%- include('components/project_card.ejs',{el:el , 
-						name: el.lang == 'en' ? project.name : project.name_arabic , 
-						col:project.col , id:project.id , 
-						url: el.url + project.projectImages[0].formats.medium.url })  %>
-					<% })%>					
+					
+					<% el.services.map((block) => {  %>
+						<% include('components/service_block.ejs', {
+						title: el.lang == 'en' ? block.title : block.title_arabic , 
+						text:  el.lang == 'en' ? block.text : block.text_arabic
+					}) %>
+					<% })%>
 				</div>
 			</div>
 		</div>
-		
+-->		
+<!--
 		<div class="about-wrap">
-		<div id="colorlib-about" class="colorlib-about-img" style="background-image: url('<%= el.url + el.slider_image_2.formats.medium.url %>');" data-stellar-background-ratio="0.5">
+		<div id="colorlib-about" class="colorlib-about-img" style="background-image: url('<%= el.url + el.slider_image_2.url %>');" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
@@ -194,7 +197,7 @@
 						<div class="about-flex">
 							<div class="col-half">
 								<% el.employers.map((emp) => {  %>
-								<%- include('components/teamMember.ejs', {url: el.url + emp.img.formats.medium.url, name:emp.name , role: emp.role}) %>
+								<%- include('components/teamMember.ejs', {url: el.url + emp.img.url, name:emp.name , role: emp.role}) %>
 								<% })%>
 							</div>
 							<div class="col-half">
@@ -263,7 +266,8 @@
 			</div>
 		</div>
 		</div>
-
+		-->
+<!--
 		<div id="colorlib-testimony">
 			<div class="container">
 				<div class="row">
@@ -277,7 +281,7 @@
 						<div class="row animate-box">
 							<div class="owl-carousel1">
 								<% el.clients.map((cl) => {  %>
-								<%- include('components/client.ejs', {url: el.url +cl.img.formats.medium.url, name:cl.name , opinion: cl.opinion}) %>
+								<%- include('components/client.ejs', {url: el.url +cl.img.url, name:cl.name , opinion: cl.opinion}) %>
 								<% })%>
 							
 							</div>
@@ -286,7 +290,7 @@
 				</div>
 			</div>
 		</div>
-
+-->
  		<!-- Start Footer -->
 		<%- include('components/footer.ejs', {el: el} ) %>
 		<!-- End Footrer-->

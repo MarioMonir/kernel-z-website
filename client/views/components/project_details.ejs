@@ -1,7 +1,7 @@
 <aside id="colorlib-hero">
 	<div class="flexslider">
 		<ul class="slides">
-		   	<li style="background-image: url('<%= p.url + p.projectImages[0].formats.large.url %>');">
+		   	<li style="background-image: url('<%= p.url + p.projectImages[0].url %>');">
 		   		<div class="overlay"></div>
 		   		<div class="container-fluid">
 		   			<div class="row">
@@ -26,21 +26,14 @@
 	<div class="container">
 		<div class="row row-pb-lg">
 			<div class="col-md-8 animate-box">
-				<img class="img-responsive project-single" src="<%= p.url + p.projectImages[1].formats.medium.url %>" alt="html5 bootstrap template by colorlib.com">
+				<img class="img-responsive project-single" src="<%= p.url + p.projectImages[1].url %>" alt="html5 bootstrap template by colorlib.com">
 				<div class="thumb-wrap">
 					<div class="row">
+	<%for (var i=2;i<p.projectImages.length;i++){ %>
 						<div class="col-md-3 col-sm-3 col-xs-6">
-							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[2].formats.medium.url %>');"></span>
+							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[i].url %>');"></span>
 						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[3].formats.medium.url %>');"></span>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[4].formats.medium.url %>');"></span>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<span href="#" class="thumb-img" style="background-image: url('<%= p.url + p.projectImages[5].formats.medium.url %>');"></span>
-						</div>
+<%}%>
 					</div>
 				</div>
 			</div>
