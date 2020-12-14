@@ -111,25 +111,19 @@
 			<% if (p.enviromentDescription || p.enviromentDescription_arabic) { %>
 				<div class="col-md-4 animate-box">
 					<h3> <%= el.lang == 'en' ?  'Enviroment Description' : 'بيئة العمل' %></h3>
-					<p>
-					<%= el.lang == 'en' ?  p.enviromentDescription : p.enviromentDescription_arabic %>	
-					</p>
+					<p><%= el.lang == 'en' ?  p.enviromentDescription : p.enviromentDescription_arabic %></p>
 				</div>
 			<% } %>
 			<% if (p.projectDescription || p.projectDescription_arabic) { %>
 				<div class="col-md-4 animate-box">
 					<h3> <%= el.lang == 'en' ?  'Project Description' : 'وصف المشروع' %></h3>
-					<p>
-					<%= el.lang == 'en' ?  p.projectDescription : p.projectDescription_arabic %>	
-					</p>
+					<p><%= el.lang == 'en' ?  p.projectDescription : p.projectDescription_arabic %></p>
 				</div>
 			<% } %>
 			<% if (p.importantFacts || p.importantFacts_arabic) { %>
 				<div class="col-md-4 animate-box">
-				<h3> <%= el.lang == 'en' ?  'Important Fact' : 'حقائق هامة' %></h3>
-						<p>
-					<%= el.lang == 'en' ?  p.importantFacts : p.importantFacts_arabic %>	
-					</p>
+					<h3> <%= el.lang == 'en' ?  'Important Fact' : 'حقائق هامة' %></h3>
+					<p><%= el.lang == 'en' ?  p.importantFacts : p.importantFacts_arabic %>	</p>
 				</div>
 			<% } %>
 		</div>
