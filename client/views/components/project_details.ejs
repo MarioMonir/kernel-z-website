@@ -41,30 +41,61 @@
 				<div class="project-single-desc">
 					<h2>	 <%= el.lang == 'en' ?  'Project Details' : 'تفاصيل المشروع' %></h2>
 					<ul class="list">
-						<li><span class="title">
-								 <%= el.lang == 'en' ?  'Client' : 'العميل' %>
-						</span> <span class="title-2">
-								 <%= el.lang == 'en' ?  p.client : p.client_arabic %>	
-								 </span></li>
-						<li><span class="title">
-							 <%= el.lang == 'en' ?  'Location' : 'المكان' %>
-						</span> <span class="title-2">
-							 <%= el.lang == 'en' ?  p.location : p.location_arabic %>
-							</span></li>
-						<li><span class="title">
-							 <%= el.lang == 'en' ?  'Budget' : 'الميزانية' %>
-						</span> <span class="title-2">
-							<%= p.budget %></span></li>
-						<li><span class="title">
-							 <%= el.lang == 'en' ?  'Surface Area' : 'المساحة ' %>
-						</span> <span class="title-2">
-							<%= el.lang == 'en' ?  p.surfaceArea : p.surfaceArea_arabic %>	
-							</span></li>
-						<li><span class="title">
-							 <%= el.lang == 'en' ?  'Construction Area' : 'مساحة ابناء' %>
-						</span> <span class="title-2">
-							<%= el.lang == 'en' ?  p.constructionArea : p.construcionArea_arabic %>	
-						 %></span></li>
+						<% if (p.client || p.client_arabic) { %>
+							<li>
+								<span class="title">
+									<%= el.lang == 'en' ?  'Client' : 'العميل' %>
+								</span> 
+								<span class="title-2">
+									<%= el.lang == 'en' ?  p.client : p.client_arabic %>	
+								</span>
+							</li>
+						<% } %>
+
+						<% if (p.location || p.location_arabic) { %>
+							<li>
+								<span class="title">
+							 		<%= el.lang == 'en' ?  'Location' : 'المكان' %>
+								</span> 
+								<span class="title-2">
+							 		<%= el.lang == 'en' ?  p.location : p.location_arabic %>
+								</span>
+							</li>
+						<% } %>
+
+						<% if (p.budget) { %>	
+							<li>
+								<span class="title">
+							 		<%= el.lang == 'en' ?  'Budget' : 'الميزانية' %>
+								</span>
+								<span class="title-2">
+									<%= p.budget %>
+								</span>
+							</li>
+						<% } %>
+
+						<% if (p.surfaceArea || p.surfaceArea_arabic) { %>
+							<li>
+								<span class="title">
+							 		<%= el.lang == 'en' ?  'Surface Area' : 'المساحة ' %>
+								</span> 
+								<span class="title-2">
+									<%= el.lang == 'en' ?  p.surfaceArea : p.surfaceArea_arabic %>	
+								</span>
+							</li>
+						<% } %>
+
+						<% if (p.constructionArea || p.construcionArea_arabic) { %>
+							<li>
+								<span class="title">
+							 		<%= el.lang == 'en' ?  'Construction Area' : 'مساحة ابناء' %>
+								</span> 
+								<span class="title-2">
+								<%= el.lang == 'en' ?  p.constructionArea : p.construcionArea_arabic %>	
+						 		%>
+								</span>
+							</li>
+						 <% } %>
 					</ul>
 				</div>
 				<!-- <p class="downloadreport text-center"><a href="#"><i class="icon-download3"></i> Download Project Report</a></p> -->
