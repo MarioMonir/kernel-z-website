@@ -81,6 +81,10 @@
     },
     "importantFacts_arabic": {
       "type": "richtext"
+    },
+    "current_project": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
