@@ -29,7 +29,7 @@ router.get("/", async (req, res, next) => {
 	try {
 		let lang = req.app.get("lang");
 		let home = await fetchHome();
-		let projects = await fetchEntity("projects");
+		let projects = await fetchEntity("projects?current_project=false");
 		res.render("projects", {
 			el: {
 				...home,
@@ -45,4 +45,3 @@ router.get("/", async (req, res, next) => {
 });
 
 module.exports = router;
-

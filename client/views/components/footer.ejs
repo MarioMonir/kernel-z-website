@@ -1,4 +1,4 @@
-		<footer id="colorlib-footer">
+		<footer id="colorlib-footer" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
 			<div class="contact-information">
 				<div class="container">
 					<div class="row">
@@ -29,22 +29,14 @@
 			</div>
 			<div class="container">
 				<div class="row row-pb-md">
-					<div class="col-md-3 colorlib-widget">
-						<h4><%= el.lang=='en' ? " About "+el.name+"" : " حول "+el.name_arabic %></h4>
+					<div class="col-md-5 colorlib-widget">
+						<strong style="color:white" ><%= el.lang=='en' ? " About "+el.name+"" : " حول "+el.name_arabic %></strong>
 						<p><%= el.lang=='en' ? el.footer_about : el.footer_about_arabic %></p>
-<!-- 						<p>
-							<ul class="colorlib-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="#"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</p> -->
 					</div>
 
 
-					<div class="col-md-3 col-md-push-1 colorlib-widget">
-						<h4><%= el.lang=='en' ? 'Contact Info' : 'معلوماتالنواصل' %></h4>
+					<div class="col-md-5 col-md-push-1 colorlib-widget">
+						<strong style="color:white"><%= el.lang=='en' ? 'Contact Info' : 'معلومات التواصل' %></strong>
 						<ul class="colorlib-footer-links">
 							<li><%= el.address %></li>
 							<li><a><i class="icon-phone"></i><%= el.mobile %></a></li>
