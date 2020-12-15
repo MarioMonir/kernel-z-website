@@ -46,14 +46,14 @@ router.post("/", function (req, res) {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "", // put a valid email
-      pass: "", // put a valid password
+      user: "mohamed.farouk@aluwalls.com", // put a valid email
+      pass: "mohamed@Farouk2020", // put a valid password
     },
   });
 
   var mailOptions = {
     from: req.body.email,
-    to: "mazensoliman@kernel-z.com",
+    to: "mohamed.farouk@aluwalls.com",
     subject: req.body.subject,
     text: `
           First-Name  : ${req.body.fname}
