@@ -9,7 +9,12 @@ router.get("/", async (req, res, next) => {
   try {
     let lang = req.app.get("lang");
     let home = await fetchHome();
-    let projects = await fetchEntity("projects?showHome=true");
+    let projects = await fetchEntity(
+      "projects?showHome=true&current_project=false"
+    );
+    let currentProjects = await fetchEntity(
+      "projects?showHome=true&current_project=true"
+    );
     let services = await fetchEntity("services");
     let employers = await fetchEntity("employers");
     let clients = await fetchEntity("clients");
@@ -19,6 +24,7 @@ router.get("/", async (req, res, next) => {
         lang: lang,
         page: "home",
         projects: [...projects],
+        currentProjects: [...currentProjects],
         services: [...services],
         employers: [...employers],
         clients: [...clients],
