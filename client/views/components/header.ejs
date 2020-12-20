@@ -1,11 +1,11 @@
 <nav class="colorlib-nav" role="navigation">
    <div class="top-menu">
-      <div class="container" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
-         <div class="row" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
-            <div class="col-xs-2" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
-               <div id="colorlib-logo" dir="<%= el.lang == 'en' ? 'ltr' : 'rtl'  %>">
+      <div class="container">
+         <div class="row">
+            <div class="col-xs-2">
+               <div id="colorlib-logo">
                   <a href="/<%= el.lang %>">
-                     <%= el.lang == 'en' ? el.name : el.name_arabic  %>
+		     <img src="https://www.aluwalls.com:8080/uploads/redxred_da0e384d2e.svg" height="125" width="300"/>
                </div>
             </div>
             <div class="col-xs-10 text-right menu-1">
@@ -34,10 +34,10 @@
                </a></li>
  
             <li class="<%= el.page == 'services' ? 'active' : '' %> " >
-            <a href="/<%= el.lang %>/services"><%- el.lang == 'ar' ? 'الخدمات':'Services' %></a>
+            <a href="#"><%- el.lang == 'ar' ? 'الخدمات':'Services' %></a>
             </li>
             <li class="<%= el.page == 'about' ? 'active' : '' %>" >
-            <a href="/<%= el.lang %>/about"><%- el.lang == 'ar' ? 'من نحن':'About' %></a>
+            <a href="#"><%- el.lang == 'ar' ? 'من نحن':'About' %></a>
             </li>
             <li class="<%= el.page == 'contact' ? 'active' : '' %>" >
             <a href="/<%= el.lang %>/contact"><%- el.lang == 'ar' ? 'تواصل معنا':'Contact' %></a>

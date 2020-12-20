@@ -19,7 +19,7 @@
 								<div class="col-md-4 text-center">
 									<div class="info-wrap">
 										<span class="icon"><i class="icon-phone2"></i></span>
-										<p><a><%= el.mobile %></a></p>
+										<p><a href=<%="tel:"+el.mobile%>><%= el.mobile %></a></p>
 									</div>
 								</div>
 							</div>
@@ -39,7 +39,7 @@
 						<strong style="color:white"><%= el.lang=='en' ? 'Contact Info' : 'معلومات التواصل' %></strong>
 						<ul class="colorlib-footer-links">
 							<li><%= el.address %></li>
-							<li><a><i class="icon-phone"></i><%= el.mobile %></a></li>
+							<li><a href=<%="tel:"+el.mobile%>><i class="icon-phone"></i><%= el.mobile %></a></li>
 							<li><a href="mailto:<%= el.email %>"><i class="icon-envelope"></i><%= el.email %></a></li>
 							<li><a href="http://<%= el.website %>"><i class="icon-location4"></i> <%= el.website %> </a></li>
 						</ul>

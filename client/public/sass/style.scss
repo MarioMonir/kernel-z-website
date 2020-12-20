@@ -5,7 +5,7 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
-$brand-primary: #F7B633 !default;
+$brand-primary: #ED3F3C !default;
 $brand-yellow: #F7AF1D !default;
 
 $brand-footer-color: #1E2022;
@@ -472,7 +472,7 @@ h1, h2, h3, h4, h5, h6, figure {
 				h1, h2 {
 					margin: 0;
 					padding: 0;
-					color: rgba($brand-white,1);
+					color: rgba($brand-primary,1);
 				}
 				h1 {
 					margin-bottom: 30px;
@@ -488,7 +488,6 @@ h1, h2, h3, h4, h5, h6, figure {
 					line-height: 1.5;
 					margin-bottom: 20px;
 					font-weight: 300;
-					color: rgba($brand-white,.7);
 					a{
 						color: rgba(255,255,255,1);
 					}
